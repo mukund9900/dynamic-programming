@@ -32,6 +32,7 @@ function minCoinChange(amount, coins) {
         }
       }
       lookup[amount] = minCoin;
+      
       return lookup[amount];
     }
   }

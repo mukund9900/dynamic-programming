@@ -34,3 +34,20 @@ function houseRobbery(arr) {
   }
   return prev_dp;
 }
+
+//////////////////////////////////////
+
+function rob(arr, i = 0) {
+  if (i >= arr.length) return 0;
+  return Math.max(arr[i] + rob(arr, i + 2), rob(arr, i + 1));
+}
+
+// tabulation
+
+//[   4   8   12   1   2    2    10   ]
+
+// dp[0] can be only arr[0] robber doesnt have any house to rob
+// he cannot rob arr[0], during robbery of arr[1] as per the rules.
+// so dp[1] = arr[1]
+// now dp[i] = max(arr[i] + dp[i-2] , dp[i-1]);
+

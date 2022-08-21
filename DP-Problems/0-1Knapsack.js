@@ -21,9 +21,9 @@ knap(k,i) => 0 :  i=|v|
 
              otherwise:
              max(
-                v@i + knap(k-v@i, i+1), add the weight @ i in the sack, 
-                  or
-                knap(k, i+1)   just move the i to next weight and see.
+                v@i + knap(k-v@i, i+1) add the weight @ i in the sack, 
+                
+                ,knap(k, i+1)   just move the i to next weight and see.
              )
 */
 
@@ -56,4 +56,36 @@ function knapSack(values, weights, k, i = 0, lookup = {}) {
     );
     return lookup[`${k}${i}`];
   }
+}
+
+/* 
+w@i > j => dp[i][j] = dp[i-1][j];
+w@i <= j => dp[i][j] = MAX(v@i + dp[i-1][j-w@i] , dp[i-1][j])
+*/
+
+//tabulation
+function knapSack(values, weights, k) {
+  if (k == 0) return 0;
+  if (weights.reduce((a, b) => a + b, 0) >= k)
+    return values.reduce((a, b) => a + b, 0);
+
+  let n = values.length;
+  let m = k + 1;
+  let dp = Array.prototype.generateMatrix(n, m);
+
+  for (let i = 0; i < m; i++) {
+    if (i < weights[0]) dp[0][i] = 0;
+    else dp[0][i] = values[0];
+  }
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < m; j++) {
+      if (weights[i] > j) dp[i][j] = dp[i - 1][j];
+      else
+        dp[i][j] = Math.max(
+          values[i] + dp[i - 1][j - weights[i]],
+          dp[i - 1][j]
+        );
+    }
+  }
+  return dp[n - 1][m - 1];
 }

@@ -10,7 +10,7 @@ lcs(i,j):
 abcdaf
 acbcf
 
-a b 
+==> abcf
 
 */
 
@@ -53,6 +53,11 @@ function lcs_topDown(s1, s2) {
   let lookup = Array(m).fill(Array(n + 1));
   lookup.unshift(Array(n + 1).fill(0)); //first row zero;
   lookup.map((o) => (o[0] = 0)); // first column zero;
+
+  /* 
+  First column and first row is zeros because
+   |lcs("", s)| = 0
+  */
 
   for (let i = 1; i < n + 1; i++) {
     for (let j = 1; j < m + 1; j++) {

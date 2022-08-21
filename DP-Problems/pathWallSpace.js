@@ -58,9 +58,10 @@ function paths(arr, i = 0, j = 0) {
 }
 
 /* 
-initially take the smallest dp value if 0,0 is 0 then dp(0,0)=1 else 0;
-then read the first dp row by check i.e., dp[0][j] = dp[0][j-1] if matrix[0][j] else 0
+initially take the smallest dp value, if 0,0 is 0 then dp(0,0)=1 else 0;
+then read the first matrix row by check i.e., dp[0][j] = dp[0][j-1] if matrix[0][j] else 0
 similarly to column also dp[0][i] = dp[0][i-1] if matrix[0][i] else 0
+remaining add up the [j-1][] and [i-1][j] value to get [i][j].
 
 
 */

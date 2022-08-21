@@ -42,7 +42,7 @@ function ways(s, i = 0, lookup) {
   if (lookup[i]) return lookup[i];
   if (i == s.length) return 1;
   if (Number(s[i]) == 0) return 0;
-  else if (10 <= Number(s[i]) + Number([i + 1]) <= 26 && i + 1 < s.length) {
+  else if (10 <= Number(s[i] + [i + 1]) <= 26 && i + 1 < s.length) {
     lookup[i] = ways(s, i + 1) + ways(s, i + 2);
     return lookup[i];
   } else {

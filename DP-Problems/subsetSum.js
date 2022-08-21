@@ -22,7 +22,7 @@ function subsetSum(arr, k, i = 0) {
   } else if (k == 0) {
     return 1;
   } else {
-    return subsetSum(arr, k - arr[i], i + 1), subsetSum(arr, k, i + 1);
+    return subsetSum(arr, k - arr[i], i + 1)+ subsetSum(arr, k, i + 1);
   }
 }
 

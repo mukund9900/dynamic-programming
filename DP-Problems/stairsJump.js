@@ -51,12 +51,12 @@ function ways_memo(n, jumps, lookup = {}) {
 */
 
 function ways_tabulation(n, jumps) {
-  let dp = [];
+  let dp = Array(n + 1).fill(0);
   dp[0] = 1;
-
   for (let i = 0; i < n + 1; i++) {
     for (let jump of jumps) {
       if (i - jump >= 0) dp[i] += dp[i - jump];
     }
   }
+  return dp[n];
 }

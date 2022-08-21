@@ -100,3 +100,19 @@ function cost_bottomUp_maintain_spaceComplex(matrix) {
   }
   return matrix[n - 1][m - 1];
 }
+
+//////////////////////////////
+
+/* 
+cost(0,0 )
+cost (0,1) + cost (1,0)
+
+
+*/
+
+function costMin(arr, i = 0, j = 0) {
+  if (i == n - 1) return arr[i][j] + costMin(arr, i, j + 1);
+  if (j == m - 1) return arr[i][j] + costMin(arr, i + 1, j);
+  if (i == n - 1 && j == m - 1) return arr[i][j];
+  return arr[i][j] + Math.min(costMin(arr, i + 1, j), costMin(arr, i, j + 1));
+}

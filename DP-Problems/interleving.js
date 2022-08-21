@@ -122,4 +122,5 @@ function interlev(s1, s2, s3) {
       dp[i][j] = check_s1 || check_s2;
     }
   }
+  dp[n][m];
 }
