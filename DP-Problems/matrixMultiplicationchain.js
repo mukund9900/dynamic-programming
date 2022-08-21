@@ -103,7 +103,7 @@ function chains() {
     if (i == j) return 0;
     else {
       let min_cost = -Infinity;
-      for (let k = 0; i < m.length; i++) {
+      for (let k = i; k < j; k++) {
         let left = _chain(m, i, k, lookup);
         let right = _chain(m, k + 1, j, lookup);
         let prod = m[i][0] * m[k][1] * m[j][1];
