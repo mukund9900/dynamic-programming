@@ -24,7 +24,11 @@ finally the lis(i, prev) = Max(1 + lis(i+1, arr[i]), lis(i+1, prev))
 function lisRecusive(arr, i = 0, prev = -Infinity) {
   if (i == arr.length) return 0;
   if (arr[i] <= prev) return lisRecusive(arr, i + 1, prev);
-  else return Math.max(1 + lisRecusive(arr, i + 1, arr[i]), lis(i + 1, prev));
+  else
+    return Math.max(
+      1 + lisRecusive(arr, i + 1, arr[i]),
+      lisRecusive(arr, i + 1, prev)
+    );
 }
 
 // TC = o(2^n )  SC = o(n + 1) = o(n);

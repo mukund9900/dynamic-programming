@@ -18,7 +18,7 @@ Input: n = 9
 Output: 715
 
 */
-function counter(n, last = "") {
+function counter(n, vowel,last = "") {
   if (n == 0) return 1;
 
   let nb = 0;

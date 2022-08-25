@@ -26,7 +26,7 @@ function word_break(s, words) {
       }
       return false;
     }
-  } 
+  }
   return rec(s, words);
 }
 // use memoization
@@ -58,6 +58,20 @@ function word_break(s, words) {
 // [T  F  F  T  T  F  T  T  F  T  T  F  T  T  F  F  T  F  F  T  T
 
 function dp_wordBreak(s, words) {
+  let n = s.length;
+  dp[0] = true;
+  for (let i = 1; i < n + 1; i++) {
+    for (let j = 0; j < i; j++) {
+      if (words.includes(s.substring(j, i)) && dp[j]) {
+        dp[i] = true;
+        break;
+      }
+    }
+  }
+  return dp[n];
+}
+
+function dpwb(s, words) {
   let n = s.length;
   dp[0] = true;
   for (let i = 1; i < n + 1; i++) {

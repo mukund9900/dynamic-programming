@@ -14,7 +14,7 @@ cost (i, j) ==>
   else matrix[i][j] + min (cost(i,j+1), cost(i+1, j));
 
 */
-//Top-down method;
+//Top-down method or memoization....;
 function cost_topDown(matrix, i = 0, j = 0, lookup) {
   const m = matrix[0].length;
   const n = matrix.length;
