@@ -1,4 +1,13 @@
 /* 
+
+Gold mine (problem)
+Given a mine of n rows and m columns where mine[i][j] 
+represents the amount of gold that is present there,
+we want to enter from the top of the mine and take as much gold
+as possible when exiting from the bottom, knowing that we can only move to the bottom,
+to the bottom-left, or to the bottom-right. We can exit from anywhere from the last row.
+
+
 [
 [3,2,12,15,10],
 [6,19,7,11,17],
@@ -64,11 +73,25 @@ SC = o(n);
 */
 
 //top down approach;
+// GOLD MINE
+/*
 
+               j
+        ----------------
+        3, 2, 12, 15, 10
+        ----------------
+i       6, 19, 7, 11, 17
+        ----------------
+        8, 5, 12, 32, 21
+        ----------------
+        3, 20, 2, 9, 7
+        ----------------
+*/
+// DP
 /* 
                j
         -------------------------------------------
-        3,           2,     12,    15,      10
+        3,           2,          12,    15,      10
         --------------------------------------------
 i       6+3,       19+12,        7+15,  11+15,      17+15
         --------------------------------------------

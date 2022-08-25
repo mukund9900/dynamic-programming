@@ -20,13 +20,13 @@ function word_break(s, words) {
     if (i == s.length) return true;
     else {
       for (let j = i + 1; j < s.length + 1; j++) {
-        if (words.includes(s.substring(i, j) && rec(s, words, j))) {
+        if (words.includes(s.substring(i, j)) && rec(s, words, j)) {
           return true;
         }
       }
       return false;
     }
-  }
+  } 
   return rec(s, words);
 }
 // use memoization

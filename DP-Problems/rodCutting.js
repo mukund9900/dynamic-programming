@@ -47,10 +47,11 @@ maxPrice would be
 else maximun(price(i) + rod(i-1))
 
 */
+// n is length of rod.
 function rod(prices, n) {
   let maxPrice = 0;
-  for (let i = 1; i <= n; i++) {
-    maxPrice = Math.max(maxPrice, prices[i] + rod(prices, n - i));
+  for (let length = 1; length < n + 1; length++) {
+    maxPrice = Math.max(maxPrice, prices[length] + rod(prices, n - length));
   }
   return maxPrice;
 }
@@ -58,8 +59,11 @@ function rod(prices, n) {
 function rod(prices, n, lookup = {}) {
   if (lookup[n]) return lookup[n];
   let maxPrice = 0;
-  for (let i = 1; i <= n; i++) {
-    maxPrice = Math.max(maxPrice, prices[i] + rod(prices, n - i, lookup));
+  for (let length = 1; length < n + 1; length++) {
+    maxPrice = Math.max(
+      maxPrice,
+      prices[length] + rod(prices, n - length, lookup)
+    );
   }
   lookup[n] = maxPrice;
   return lookup[n];
@@ -76,5 +80,5 @@ function rod_dp(prices, n) {
       dp[i] = Math.max(dp[i], prices[length] + dp[i - length]);
     }
   }
-  return dp[n-1];;
+  return dp[n - 1];
 }

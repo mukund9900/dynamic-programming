@@ -75,7 +75,7 @@ given a array of matrix row and column values
 Min(
 chain(i,k) + 
 chain(k+1, j) +
-Mi[0] + Mk[c] + Mj[c]   otherwise;
+Mi[0] * Mk[c] * Mj[c]   otherwise;
 )
 
 */

@@ -21,7 +21,7 @@ knap(k,i) => 0 :  i=|v|
 
              otherwise:
              max(
-                v@i + knap(k-v@i, i+1) add the weight @ i in the sack, 
+                v@i + knap(k-w@i, i+1) add the weight @ i in the sack, 
                 
                 ,knap(k, i+1)   just move the i to next weight and see.
              )
@@ -77,8 +77,8 @@ function knapSack(values, weights, k) {
     if (i < weights[0]) dp[0][i] = 0;
     else dp[0][i] = values[0];
   }
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < m; j++) {
+  for (let i = 1; i < n; i++) {
+    for (let j = 1; j < m; j++) {
       if (weights[i] > j) dp[i][j] = dp[i - 1][j];
       else
         dp[i][j] = Math.max(

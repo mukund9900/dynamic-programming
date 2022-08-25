@@ -84,7 +84,7 @@ function dp_vowel(n) {
 // here we are doing combinations with out repetations
 
 /* 
-nCn-r  =  (n + r -1)! / r! (n-1)! here n is size of vowels, r is the combination string size;
+nCr  =  (n + r -1)! / r! (n-1)! here n is size of vowels, r is the combination string size;
        =   (5+ r-1)! / r! (4!) = (r+4)!/4!
        = (r+4)(r+3)(r+2)(r+1)/24
 
